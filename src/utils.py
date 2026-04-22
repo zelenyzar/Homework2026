@@ -23,8 +23,4 @@ def create_objects_from_json(data: dict[str, Any]) -> dict[str, Any]:
     return categories
 
 
-# if __name__ == "__main__":
-#     datax = read_json("../data/products.json")
-#     datay = create_objects_from_json(datax)
-#     print(datay[0].name)
-#     print(datay[0].products)
+
