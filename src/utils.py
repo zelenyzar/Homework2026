@@ -1,6 +1,5 @@
 import json
 import os
-from fileinput import filename
 from typing import Any
 
 from src.task import Category, Product

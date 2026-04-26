@@ -1,7 +1,7 @@
-from unittest.mock import patch
 import json
+from unittest.mock import patch
 
-from src.utils import read_json, create_objects_from_json
+from src.utils import create_objects_from_json, read_json
 
 
 def test_read_json(json_test):
@@ -11,5 +11,6 @@ def test_read_json(json_test):
 
         assert read_json("products.json") == json_test
 
+
 def test_create_objects_from_json(json_test):
-    assert create_objects_from_json(json_test)[0].name == 'Смартфоны'
+    assert create_objects_from_json(json_test)[0].name == "Смартфоны"
