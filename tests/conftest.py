@@ -34,6 +34,11 @@ def product_1():
 
 
 @pytest.fixture
+def product_2():
+    return Product(name="beef", price=11.0, description="meat", quantity=1)
+
+
+@pytest.fixture
 def json_test():
     return [
         {

@@ -38,3 +38,13 @@ def test_new_product():
     prod = {"name": "beef", "price": 11.0, "description": "meat", "quantity": 2}
     prod1 = Product.new_product(prod)
     assert prod1.name == "beef"
+
+
+def test_add_product_1(product_1, product_2, category_1):
+    assert round(product_1 + product_2, 1) == 461.2
+    assert product_1 + category_1 == "Допускается складывать только продукты"
+
+
+def test_str(product_1, category_2):
+    assert str(product_1) == "milk, 150.05 руб. Остаток: 3 шт."
+    assert str(category_2) == "meat, количество продуктов: 5 шт."

@@ -15,6 +15,15 @@ class Product:
         self.description = description
         self.quantity = quantity
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other: Product) -> float | int | str:
+        if isinstance(other, Product):
+            return self.price * self.quantity + other.price * other.quantity
+        else:
+            return "Допускается складывать только продукты"
+
     @property
     def price(self) -> float:
         return self.__price
@@ -48,13 +57,19 @@ class Category:
         self.description = description
         self.__products = products
         Category.category_count += 1
-        Category.product_count += len(self.products) if self.products else 0
+        Category.product_count += len(self.__products) if self.__products else 0
+
+    def __str__(self):
+        result = 0
+        for product in self.__products:
+            result += product.quantity
+        return f"{self.name}, количество продуктов: {result} шт."
 
     @property
     def products(self) -> List[Product]:
         prod_list = []
         for product in self.__products:
-            prod_list.append(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.")
+            prod_list.append(str(product))
         return prod_list
 
     def add_product(self, product: Product) -> None:
