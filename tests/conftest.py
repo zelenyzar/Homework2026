@@ -1,5 +1,6 @@
 import pytest
 
+from src.subproducts import LawnGrass, Smartphone
 from src.task import Category, Product
 
 
@@ -36,6 +37,33 @@ def product_1():
 @pytest.fixture
 def product_2():
     return Product(name="beef", price=11.0, description="meat", quantity=1)
+
+
+@pytest.fixture
+def sub_smartphone():
+    return Smartphone(
+        name="Iphone",
+        price=20000.0,
+        description="cell phone",
+        quantity=8,
+        efficiency="fast",
+        model="15",
+        memory="512GB",
+        color="Gray space",
+    )
+
+
+@pytest.fixture
+def sub_lawngrass():
+    return LawnGrass(
+        name="grass",
+        price=2000000000000,
+        description="elite sort",
+        quantity=525,
+        country="Holland",
+        germination_period="2 years",
+        color="yellow",
+    )
 
 
 @pytest.fixture

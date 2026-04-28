@@ -19,10 +19,10 @@ class Product:
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other: Product) -> float | int | str:
-        if isinstance(other, Product):
+        if type(other) is self.__class__:
             return self.price * self.quantity + other.price * other.quantity
         else:
-            return "Допускается складывать только продукты"
+            raise TypeError("Допускается складывать только продукты")
 
     @property
     def price(self) -> float:
@@ -74,5 +74,10 @@ class Category:
 
     def add_product(self, product: Product) -> None:
         """Создает новый продукт"""
-        if isinstance(product, Product):
-            self.__products.append(product)
+        try:
+            if isinstance(product, Product) or issubclass(type(product), Product):
+                self.__products.append(product)
+            else:
+                raise TypeError("Добавлять можно только продукт!")
+        except TypeError as e:
+            print(e)
