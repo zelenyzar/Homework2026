@@ -9,16 +9,16 @@ class Product:
     description: str
     quantity: int
 
-    def __init__(self, name: str, price: float, description: str, quantity: int) -> None:
+    def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
         self.name = name
-        self.__price = price
         self.description = description
+        self.__price = price
         self.quantity = quantity
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other: Product) -> float | int | str:
+    def __add__(self, other) -> float | int | str:
         if type(other) is self.__class__:
             return self.price * self.quantity + other.price * other.quantity
         else:
