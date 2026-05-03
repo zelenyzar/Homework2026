@@ -1,7 +1,10 @@
 from typing import Any, List, Self
 
+from src.base_class import BaseProduct
+from src.mixin_class import MixinPrint
 
-class Product:
+
+class Product(BaseProduct, MixinPrint):
     """класс Product"""
 
     name: str
@@ -14,6 +17,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."

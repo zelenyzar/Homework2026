@@ -3,6 +3,7 @@
 ## Содержание: 
 1. Классы Product, Category
 2. Классы Smartphone, LawnGrass
+3. Классы BaseProduct и MixinPrint
 
 ## Установка:
 1. Клонируйте репозиторий:

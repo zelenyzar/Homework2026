@@ -10,8 +10,8 @@ def category_1():
         name="diary product",
         description="diary products",
         products=[
-            Product(name="milk", price=22.0, description="diary product", quantity=3),
-            Product(name="ice cream", price=33.0, description="diary product", quantity=4),
+            Product(name="milk", description="diary product", price=22.0, quantity=3),
+            Product(name="ice cream", description="diary product", price=33.0, quantity=4),
         ],
     )
 
@@ -22,29 +22,29 @@ def category_2():
         name="meat",
         description="meat",
         products=[
-            Product(name="beef", price=11.0, description="meat", quantity=1),
-            Product(name="eggs", price=44, description="meat", quantity=2),
-            Product(name="eggs", price=44, description="meat", quantity=2),
+            Product(name="beef", description="meat", price=11.0, quantity=1),
+            Product(name="eggs", description="meat", price=44, quantity=2),
+            Product(name="eggs", description="meat", price=44, quantity=2),
         ],
     )
 
 
 @pytest.fixture
 def product_1():
-    return Product(name="milk", price=150.05, description="diary product", quantity=3)
+    return Product(name="milk", description="diary product", price=150.05, quantity=3)
 
 
 @pytest.fixture
 def product_2():
-    return Product(name="beef", price=11.0, description="meat", quantity=1)
+    return Product(name="beef", description="meat", price=11.0, quantity=1)
 
 
 @pytest.fixture
 def sub_smartphone():
     return Smartphone(
         name="Iphone",
-        price=20000.0,
         description="cell phone",
+        price=20000.0,
         quantity=8,
         efficiency="fast",
         model="15",
@@ -57,8 +57,8 @@ def sub_smartphone():
 def sub_lawngrass():
     return LawnGrass(
         name="grass",
-        price=2000000000000,
         description="elite sort",
+        price=2000000000000,
         quantity=525,
         country="Holland",
         germination_period="2 years",
