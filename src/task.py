@@ -16,7 +16,10 @@ class Product(BaseProduct, MixinPrint):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity > 0:
+            self.quantity = quantity
+        else:
+            raise ValueError("Товар с нулевым или отрицательным количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):
@@ -59,7 +62,10 @@ class Category:
     def __init__(self, name: str, description: str, products: List[Product]) -> None:
         self.name = name
         self.description = description
-        self.__products = products
+        if isinstance(products, list):
+            self.__products = products
+        else:
+            self.__products = []
         Category.category_count += 1
         Category.product_count += len(self.__products) if self.__products else 0
 
@@ -85,3 +91,10 @@ class Category:
                 raise TypeError("Добавлять можно только продукт!")
         except TypeError as e:
             print(e)
+
+    def middle_price(self):
+        """подсчитывает средний ценник всех товаров"""
+        try:
+            return round(sum([product.price for product in self.__products]) / len(self.__products), 1)
+        except ZeroDivisionError:
+            return 0

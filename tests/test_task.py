@@ -26,6 +26,11 @@ def test_product_1(product_1, capsys):
     assert message.out == "Цена не должна быть нулевая или отрицательная\n"
 
 
+def test_product_2():
+    with pytest.raises(ValueError):
+        Product(name="beef", description="meat", price=11.0, quantity=0)
+
+
 def test_add_product(product_1, category_1):
     category_1.add_product(product_1)
     assert len(category_1.products) == 3
@@ -69,3 +74,8 @@ def test_add_product_2(sub_smartphone, sub_lawngrass, category_1, capsys):
     category_1.add_product("море волнуется раз")
     message = capsys.readouterr().out
     assert message == "Добавлять можно только продукт!\n"
+
+
+def test_middle_price(category_1, category_3):
+    assert category_1.middle_price() == 27.5
+    assert category_3.middle_price() == 0

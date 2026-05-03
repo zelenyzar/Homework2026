@@ -30,6 +30,15 @@ def category_2():
 
 
 @pytest.fixture
+def category_3():
+    return Category(
+        name="meat",
+        description="meat",
+        products=[],
+    )
+
+
+@pytest.fixture
 def product_1():
     return Product(name="milk", description="diary product", price=150.05, quantity=3)
 
